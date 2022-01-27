@@ -2,114 +2,134 @@ import "./App.scss";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
+import LoadingBar from "react-top-loading-bar";
 
-export class App extends Component {
-  pageSize= 6;
-  render() {
-    return (
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <News
-                key="general"
-                pageSize={this.pageSize}
-                country="in"
-                category="general"
-              />
-            }
-          />
-          <Route
-            path="/business"
-            element={
-              <News
-                key="business"
-                pageSize={this.pageSize}
-                country="in"
-                category="business"
-              />
-            }
-          />
+export default function App() {
+  const [progress, setProgress] = useState(0);
+  const apiKey = "2a2fea578eaf4a7199ec74e504368390";
+  const pageSize = 6;
+  
+  const updateProgress = (progress) => {
+    setProgress(progress);
+  };
+  return (
+    <BrowserRouter>
+      <LoadingBar color="#f11946" progress={progress} />
 
-          <Route
-            path="/entertainment"
-            element={
-              <News
-                key="entertainment"
-                pageSize={this.pageSize}
-                country="in"
-                category="entertainment"
-              />
-            }
-          />
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="general"
+              pageSize={pageSize}
+              country="in"
+              category="general"
+            />
+          }
+        />
+        <Route
+          path="/business"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="business"
+              pageSize={pageSize}
+              country="in"
+              category="business"
+            />
+          }
+        />
 
-          <Route
-            path="/general"
-            element={
-              <News
-                key="general"
-                pageSize={this.pageSize}
-                country="in"
-                category="general"
-              />
-            }
-          />
+        <Route
+          path="/entertainment"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="entertainment"
+              pageSize={pageSize}
+              country="in"
+              category="entertainment"
+            />
+          }
+        />
 
-          <Route
-            path="/health"
-            element={
-              <News
-                key="health"
-                pageSize={this.pageSize}
-                country="in"
-                category="health"
-              />
-            }
-          />
+        <Route
+          path="/general"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="general"
+              pageSize={pageSize}
+              country="in"
+              category="general"
+            />
+          }
+        />
 
-          <Route
-            path="/science"
-            element={
-              <News
-                key="science"
-                pageSize={this.pageSize}
-                country="in"
-                category="science"
-              />
-            }
-          />
+        <Route
+          path="/health"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="health"
+              pageSize={pageSize}
+              country="in"
+              category="health"
+            />
+          }
+        />
 
-          <Route
-            path="/sports"
-            element={
-              <News
-                key="sports"
-                pageSize={this.pageSize}
-                country="in"
-                category="sports"
-              />
-            }
-          />
+        <Route
+          path="/science"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="science"
+              pageSize={pageSize}
+              country="in"
+              category="science"
+            />
+          }
+        />
 
-          <Route
-            path="/technology"
-            element={
-              <News
-                key="technology"
-                pageSize={this.pageSize}
-                country="in"
-                category="technology"
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    );
-  }
+        <Route
+          path="/sports"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="sports"
+              pageSize={pageSize}
+              country="in"
+              category="sports"
+            />
+          }
+        />
+
+        <Route
+          path="/technology"
+          element={
+            <News
+              apiKey={apiKey}
+              setProgress={updateProgress}
+              key="technology"
+              pageSize={pageSize}
+              country="in"
+              category="technology"
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App;

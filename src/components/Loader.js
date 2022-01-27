@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
-import spinner from '../../src/spinner.gif'
+import React, { Component } from "react";
+import spinner from "../../src/spinner.gif";
 
-export class Loader extends Component {
-  render() {
-    return (
-      <div>
-        <img src={spinner} alt="" />
-      </div>
-    )
-  }
+export default function Loader() {
+  return (
+    <div className="text-center">
+      <img src={spinner} alt="" style={{ height: "80px" }} />
+    </div>
+  );
 }
-
-export default Loader

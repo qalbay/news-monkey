@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import newsThumbnail from '../assets/images/news-thumbnail.jpg'
 
-export class NewsItem extends Component {
-  render() {
-    let { title, description, imageUrl, newsUrl, author, date, source } =
-      this.props;
-    return (
-      <>
-        <div className="card ">
+
+export default function NewsItem(props) {
+  let {imageUrl,description,source,title,newsUrl,author,date}=props;
+  return (
+    <div className="card ">
           <div className="position-relative">
             <img
               src={imageUrl?imageUrl:newsThumbnail}
-              className="img-fluid img-news"
+              className="img-news"
               alt={description}
             />
             <span className="position-absolute badge rounded-pill bg-danger" style={{left:'10px',bottom:'10px'}}>
@@ -33,9 +31,6 @@ export class NewsItem extends Component {
             </div>
           </div>
         </div>
-      </>
-    );
-  }
+  )
 }
 
-export default NewsItem;

@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/images/logo.png'
 
-export class Navbar extends Component {
-  static propTypes = {};
+export default function Navbar() {
 
-  render() {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-0 fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
             <img src={logo} alt="logo" className="logo-img me-3" />
@@ -96,8 +94,6 @@ export class Navbar extends Component {
           </div>
         </div>
       </nav>
-    );
-  }
+    </div>
+  )
 }
-
-export default Navbar;
